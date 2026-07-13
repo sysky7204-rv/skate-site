@@ -9,53 +9,52 @@ import skaterData from './data/skaterData.json';
    "Gritty Culture Blog & Community" (Figma).
    ============================================================ */
 
-// --- Static content: loaded from JSON data file ---
-const SKATER = skaterData;
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8080';
 
-// --- Unsplash images: skateboarding street culture ---
 const HERO_IMAGE =
   'https://images.unsplash.com/photo-1547447134-cd3f5c716030?w=1600&q=80';
 
 const GALLERY_IMAGES = [];
 
-// YouTube embed (featured: first video from data)
-const YT_VIDEO_ID = skaterData.videos[0].id;
-
 function App() {
+  const [skater, setSkater] = useState(skaterData);
+
+  useEffect(() => {
+    fetch(`${API_BASE}/api/skaters/1`)
+      .then(res => {
+        if (!res.ok) throw new Error('API not available');
+        return res.json();
+      })
+      .then(data => {
+        const merged = { ...skaterData, ...data };
+        setSkater(merged);
+      })
+      .catch(() => {
+        console.log('API not available, using local data');
+      });
+  }, []);
+
+  const YT_VIDEO_ID = skater.videos?.[0]?.id || skaterData.videos[0].id;
+
   return (
     <div className="app">
-      {/* Global grain overlay */}
       <div className="grain-overlay" />
-
-      {/* Sticky Nav */}
       <Nav />
-
-      {/* Hero */}
-      <Hero />
-
-      {/* Profile & Story — magazine longform */}
-      <Story />
-
-      <YouTubeGallery />
-      <Lessons />
-
-      <Career />
-    
-      {/* Featured Video — embedded */}
-      <FeaturedVideo />
-
-      {/* Stats Strip */}
-      <StatsStrip />
-
-      {/* Culture Connection / Footer */}
-      <Footer />
+      <Hero skater={skater} />
+      <Story skater={skater} />
+      <YouTubeGallery skater={skater} />
+      <Lessons skater={skater} />
+      <Career skater={skater} />
+      <FeaturedVideo videoId={YT_VIDEO_ID} />
+      <StatsStrip skater={skater} />
+      <Footer skater={skater} videoId={YT_VIDEO_ID} />
     </div>
   );
 }
 
 /* ============== LESSONS (Soomgo) ============== */
-function Lessons() {
-  const { lessons } = SKATER;
+function Lessons({ skater }) {
+  const { lessons } = skater;
 
   return (
     <section id="lessons" className="lessons">
@@ -81,7 +80,7 @@ function Lessons() {
           </div>
           <div className="lessons__cta">
             <a
-              href={SKATER.soomgoUrl}
+              href={skater.soomgoUrl}
               target="_blank"
               rel="noreferrer"
               className="btn-primary"
@@ -106,14 +105,14 @@ function Lessons() {
 }
 
 /* ============== YOUTUBE GALLERY ============== */
-function YouTubeGallery() {
+function YouTubeGallery({ skater }) {
   const [failedImages, setFailedImages] = useState({});
 
   const handleImageError = (videoId) => {
     setFailedImages(prev => ({ ...prev, [videoId]: true }));
   };
 
-  const topVideos = SKATER.videos
+  const topVideos = (skater.videos || [])
     .filter(video => !failedImages[video.id])
     .sort((a, b) => {
       const viewsA = parseInt(a.views.replace(/,/g, ''));
@@ -164,7 +163,7 @@ function YouTubeGallery() {
 }
 
 /* ============== NAV ============== */
-function Nav() {
+function Nav({ skater }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -190,9 +189,9 @@ function Nav() {
           <a href="#culture">Culture</a>
         </div>
         <div className="nav__right">
-          <span className="nav__loc mono-label">{SKATER.location}</span>
+          <span className="nav__loc mono-label">{skater?.location || skaterData.location}</span>
           <a
-            href={`https://instagram.com/${SKATER.instagram}`}
+            href={`https://instagram.com/${skater?.instagram || skaterData.instagram}`}
             target="_blank"
             rel="noreferrer"
             className="nav__cta"
@@ -224,7 +223,7 @@ function Nav() {
 }
 
 /* ============== HERO ============== */
-function Hero() {
+function Hero({ skater }) {
   return (
     <header id="top" className="hero">
       {/* Background image */}
@@ -235,35 +234,35 @@ function Hero() {
 
       {/* Vertical side label */}
       <div className="hero__side">
-        <span className="mono-label">{SKATER.stance}</span>
+        <span className="mono-label">{skater?.stance || skaterData.stance}</span>
       </div>
 
       {/* Main content */}
       <div className="hero__content">
         <div className="hero__tag">
-          <span className="mono-label">{SKATER.tagline}</span>
+          <span className="mono-label">{skater?.tagline || skaterData.tagline}</span>
         </div>
 
         <h1 className="hero__name">
-          {SKATER.englishName || SKATER.name}
+          {skater?.englishName || skater?.name || skaterData.englishName}
         </h1>
 
         <p className="hero__slogan">
-          {SKATER.slogan}
+          {skater?.slogan || skaterData.slogan}
         </p>
 
         <div className="hero__meta">
           <span className="hero__metaitem">
-            <MapPin size={14} /> {SKATER.location}
+            <MapPin size={14} /> {skater?.location || skaterData.location}
           </span>
           <span className="hero__metaitem-dot" />
           <span className="hero__metaitem">
-            Est. {SKATER.born}
+            Est. {skater?.born || skaterData.born}
           </span>
           <span className="hero__metaitem-dot" />
-          <span className="hero__metaitem">{SKATER.stance} STANCE</span>
+          <span className="hero__metaitem">{skater?.stance || skaterData.stance} STANCE</span>
           <span className="hero__metaitem-dot" />
-          <span className="hero__metaitem hero__metaitem--accent">{SKATER.worldRank}</span>
+          <span className="hero__metaitem hero__metaitem--accent">{skater?.worldRank || skaterData.worldRank}</span>
         </div>
 
         <div className="hero__scroll">
@@ -274,16 +273,16 @@ function Hero() {
 
       {/* Bottom strip */}
       <div className="hero__strip">
-        <span>{SKATER.tagline}</span>
-        <span>{SKATER.tagline}</span>
-        <span>{SKATER.tagline}</span>
+        <span>{skater?.tagline || skaterData.tagline}</span>
+        <span>{skater?.tagline || skaterData.tagline}</span>
+        <span>{skater?.tagline || skaterData.tagline}</span>
       </div>
     </header>
   );
 }
 
 /* ============== STORY (longform magazine) ============== */
-function Story() {
+function Story({ skater }) {
   return (
     <section id="story" className="story">
       <div className="story__container">
@@ -296,19 +295,19 @@ function Story() {
         {/* Intro — big drop-cap paragraph */}
         <div className="story__intro">
           <p className="story__lede">
-            {SKATER.story.intro}
+            {skater?.story?.intro || skaterData.story.intro}
           </p>
         </div>
 
         {/* Two-column body */}
         <div className="story__body">
           <div className="story__col">
-            <p>{SKATER.story.paragraphs[0]}</p>
-            <p>{SKATER.story.paragraphs[1]}</p>
+            <p>{skater?.story?.paragraphs?.[0] || skaterData.story.paragraphs[0]}</p>
+            <p>{skater?.story?.paragraphs?.[1] || skaterData.story.paragraphs[1]}</p>
           </div>
           <div className="story__col">
-            <p>{SKATER.story.paragraphs[2]}</p>
-            <p>{SKATER.story.paragraphs[3]}</p>
+            <p>{skater?.story?.paragraphs?.[2] || skaterData.story.paragraphs[2]}</p>
+            <p>{skater?.story?.paragraphs?.[3] || skaterData.story.paragraphs[3]}</p>
           </div>
         </div>
 
@@ -316,38 +315,38 @@ function Story() {
         <div className="story__quote">
           <Quote size={40} className="story__quotemark" />
           <p className="story__quotetext">
-            {SKATER.story.pullQuote}
+            {skater?.story?.pullQuote || skaterData.story.pullQuote}
           </p>
-          <span className="story__quoteauthor">— {SKATER.name}</span>
+          <span className="story__quoteauthor">— {skater?.name || skaterData.name}</span>
         </div>
 
         {/* Quick facts sidebar */}
         <div className="story__facts">
           <div className="story__fact">
             <span className="mono-label">Name</span>
-            <span className="story__factval">{SKATER.name}</span>
+            <span className="story__factval">{skater?.name || skaterData.name}</span>
           </div>
           <div className="story__fact">
             <span className="mono-label">Based</span>
-            <span className="story__factval">{SKATER.location}</span>
+            <span className="story__factval">{skater?.location || skaterData.location}</span>
           </div>
           <div className="story__fact">
             <span className="mono-label">Stance</span>
-            <span className="story__factval">{SKATER.stance}</span>
+            <span className="story__factval">{skater?.stance || skaterData.stance}</span>
           </div>
           <div className="story__fact">
             <span className="mono-label">Born</span>
-            <span className="story__factval">{SKATER.born}</span>
+            <span className="story__factval">{skater?.born || skaterData.born}</span>
           </div>
           <div className="story__fact">
             <span className="mono-label">Insta</span>
             <a
-              href={`https://instagram.com/${SKATER.instagram}`}
+              href={`https://instagram.com/${skater?.instagram || skaterData.instagram}`}
               target="_blank"
               rel="noreferrer"
               className="story__factval story__factlink"
             >
-              @{SKATER.instagram}
+              @{skater?.instagram || skaterData.instagram}
             </a>
           </div>
         </div>
@@ -357,7 +356,7 @@ function Story() {
 }
 
 /* ============== FEATURED VIDEO ============== */
-function FeaturedVideo() {
+function FeaturedVideo({ videoId }) {
   return (
     <section id="video" className="video">
       <div className="section-label section-label--centered">
@@ -372,7 +371,7 @@ function FeaturedVideo() {
 
       <div className="video__frame">
         <iframe
-          src={`https://www.youtube.com/embed/${YT_VIDEO_ID}?rel=0&modestbranding=1`}
+          src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`}
           title="Featured Skate Edit"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
@@ -388,7 +387,7 @@ function FeaturedVideo() {
 }
 
 /* ============== CAREER TIMELINE ============== */
-function Career() {
+function Career({ skater }) {
   return (
     <section id="career" className="career">
       <div className="section-label section-label--centered">
@@ -402,7 +401,7 @@ function Career() {
       </h2>
 
       <div className="career__timeline">
-        {SKATER.career.map((item, i) => (
+        {(skater?.career || skaterData.career).map((item, i) => (
           <div key={i} className="career__item">
             <div className="career__year">
               <span className="display-md">{item.year}</span>
@@ -420,10 +419,10 @@ function Career() {
 }
 
 /* ============== STATS STRIP ============== */
-function StatsStrip() {
+function StatsStrip({ skater }) {
   return (
     <div className="stats">
-      {SKATER.stats.map((s, i) => (
+      {(skater?.stats || skaterData.stats).map((s, i) => (
         <div className="stats__item" key={i}>
           <span className="stats__num display-md">{s.value}</span>
           <span className="mono-label">{s.label}</span>
@@ -434,7 +433,7 @@ function StatsStrip() {
 }
 
 /* ============== FOOTER / CULTURE ============== */
-function Footer() {
+function Footer({ skater, videoId }) {
   return (
     <footer id="culture" className="footer">
       <div className="footer__inner">
@@ -450,16 +449,16 @@ function Footer() {
         <div className="footer__connect">
           <span className="mono-label">Connect</span>
           <div className="footer__links">
-            <a
-              href={`https://instagram.com/${SKATER.instagram}`}
+          <a
+            href={`https://instagram.com/${skater?.instagram || skaterData.instagram}`}
               target="_blank"
               rel="noreferrer"
             >
               <AtSign size={18} />
-              <span>@{SKATER.instagram}</span>
+              <span>@{skater?.instagram || skaterData.instagram}</span>
             </a>
             <a
-              href={`https://youtube.com/watch?v=${YT_VIDEO_ID}`}
+              href={`https://youtube.com/watch?v=${videoId}`}
               target="_blank"
               rel="noreferrer"
             >
