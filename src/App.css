@@ -332,20 +332,20 @@
 
 .story__lede {
   font-family: var(--display-reg);
-  font-weight: 700;
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  font-weight: 600;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  line-height: 1.6;
+  letter-spacing: 0;
   color: var(--text-primary);
   text-transform: none;
-  max-width: 800px;
+  max-width: 700px;
 }
 .story__lede::first-letter {
   font-family: var(--display);
-  font-size: 5em;
+  font-size: 3em;
   float: left;
-  line-height: 0.75;
-  padding: 0.1em 0.1em 0 0;
+  line-height: 0.85;
+  padding: 0.05em 0.1em 0 0;
   color: var(--accent);
   text-transform: uppercase;
   font-weight: 900;
