@@ -41,3 +41,5 @@ dev_stderr.txt
 # Environment
 .env.local
 .env
+
+.vercel
