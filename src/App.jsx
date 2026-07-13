@@ -107,6 +107,14 @@ function Lessons() {
 
 /* ============== YOUTUBE GALLERY ============== */
 function YouTubeGallery() {
+  const [failedImages, setFailedImages] = useState({});
+
+  const handleImageError = (videoId) => {
+    setFailedImages(prev => ({ ...prev, [videoId]: true }));
+  };
+
+  const validVideos = SKATER.videos.filter(video => !failedImages[video.id]);
+
   return (
     <section id="videos" className="youtube-gallery">
       <div className="section-label section-label--centered">
@@ -120,7 +128,7 @@ function YouTubeGallery() {
       </h2>
 
       <div className="youtube-gallery__grid">
-        {SKATER.videos.map((video) => (
+        {validVideos.map((video) => (
           <a
             key={video.id}
             href={`https://www.youtube.com/watch?v=${video.id}`}
@@ -128,7 +136,12 @@ function YouTubeGallery() {
             rel="noreferrer"
             className="youtube-gallery__item"
           >
-            <img src={video.thumbnail} alt={video.title} loading="lazy" />
+            <img 
+              src={video.thumbnail} 
+              alt={video.title} 
+              loading="lazy"
+              onError={() => handleImageError(video.id)}
+            />
             <div className="youtube-gallery__overlay">
               <Play size={48} />
             </div>

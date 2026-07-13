@@ -514,7 +514,7 @@
 
 /* ============== YOUTUBE GALLERY ============== */
 .youtube-gallery {
-  padding: 8rem 2rem;
+  padding: 8rem 2rem 4rem;
   background: var(--bg-2);
 }
 
@@ -1028,7 +1028,7 @@
 
 /* ============== LESSONS ============== */
 .lessons {
-  padding: 8rem 2rem;
+  padding: 4rem 2rem 8rem;
   background: var(--bg);
 }
 
