@@ -242,6 +242,8 @@ function Hero() {
           </span>
           <span className="hero__metaitem-dot" />
           <span className="hero__metaitem">{SKATER.stance} STANCE</span>
+          <span className="hero__metaitem-dot" />
+          <span className="hero__metaitem hero__metaitem--accent">{SKATER.worldRank}</span>
         </div>
 
         <div className="hero__scroll">

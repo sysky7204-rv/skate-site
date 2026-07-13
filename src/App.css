@@ -233,6 +233,10 @@
   letter-spacing: 0.08em;
   color: var(--text-muted);
 }
+.hero__metaitem--accent {
+  color: var(--accent);
+  font-weight: 700;
+}
 .hero__metaitem-dot {
   width: 4px;
   height: 4px;
