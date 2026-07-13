@@ -113,7 +113,14 @@ function YouTubeGallery() {
     setFailedImages(prev => ({ ...prev, [videoId]: true }));
   };
 
-  const validVideos = SKATER.videos.filter(video => !failedImages[video.id]);
+  const topVideos = SKATER.videos
+    .filter(video => !failedImages[video.id])
+    .sort((a, b) => {
+      const viewsA = parseInt(a.views.replace(/,/g, ''));
+      const viewsB = parseInt(b.views.replace(/,/g, ''));
+      return viewsB - viewsA;
+    })
+    .slice(0, 6);
 
   return (
     <section id="videos" className="youtube-gallery">
@@ -128,7 +135,7 @@ function YouTubeGallery() {
       </h2>
 
       <div className="youtube-gallery__grid">
-        {validVideos.map((video) => (
+        {topVideos.map((video) => (
           <a
             key={video.id}
             href={`https://www.youtube.com/watch?v=${video.id}`}

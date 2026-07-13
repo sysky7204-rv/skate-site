@@ -396,7 +396,6 @@
   color: var(--text-primary);
   margin: 0 0 1rem 3rem;
   text-transform: uppercase;
-  white-space: nowrap;
 }
 .story__quoteauthor {
   font-family: var(--mono);
@@ -528,7 +527,7 @@
   max-width: 1400px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 
