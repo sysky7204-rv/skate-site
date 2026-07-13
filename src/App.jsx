@@ -16,38 +16,7 @@ const SKATER = skaterData;
 const HERO_IMAGE =
   'https://images.unsplash.com/photo-1547447134-cd3f5c716030?w=1600&q=80';
 
-const GALLERY_IMAGES = [
-  {
-    src: 'https://images.unsplash.com/photo-1564982009-77a4b64888ed?w=1200&q=80',
-    alt: 'Skater mid-air trick over urban gap',
-    size: 'large',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1561056417-7e6134c838e3?w=800&q=80',
-    alt: 'Skateboard deck close-up with grip tape',
-    size: 'small',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1520045892732-2214e9590826?w=800&q=80',
-    alt: 'Skater grinding rail at dusk',
-    size: 'small',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1531428508963-7c823e673e60?w=800&q=80',
-    alt: 'Skater crouching on board in street',
-    size: 'tall',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1502839252-6f2b7a7f3e3e?w=800&q=80',
-    alt: 'Empty skatepark at dawn',
-    size: 'wide',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1558618356-1d9c8a8a8a8a?w=800&q=80',
-    alt: 'Skater portrait against graffiti wall',
-    size: 'small',
-  },
-];
+const GALLERY_IMAGES = [];
 
 // YouTube embed (featured: first video from data)
 const YT_VIDEO_ID = skaterData.videos[0].id;
@@ -70,8 +39,6 @@ function App() {
       <YouTubeGallery />
       <Lessons />
 
-      {/* Media Gallery — asymmetric grid */}
-      <Gallery />
       <Career />
     
       {/* Featured Video — embedded */}
@@ -362,59 +329,6 @@ function Story() {
             </a>
           </div>
         </div>
-      </div>
-    </section>
-  );
-}
-
-/* ============== GALLERY (asymmetric grid) ============== */
-function Gallery() {
-  return (
-    <section id="gallery" className="gallery">
-      <div className="section-label section-label--centered">
-        <div className="section-label__line" />
-        <span className="mono-label">02 — The Footage</span>
-        <div className="section-label__line" />
-      </div>
-
-      <h2 className="gallery__title display-lg">
-        Raw Cuts
-      </h2>
-
-      <div className="gallery__grid">
-        {/* Large first image */}
-        <figure className="gallery__item gallery__item--large">
-          <img src={GALLERY_IMAGES[0].src} alt={GALLERY_IMAGES[0].alt} loading="lazy" />
-          <figcaption>{GALLERY_IMAGES[0].alt}</figcaption>
-        </figure>
-
-        {/* Two small stacked */}
-        <figure className="gallery__item gallery__item--small">
-          <img src={GALLERY_IMAGES[1].src} alt={GALLERY_IMAGES[1].alt} loading="lazy" />
-          <figcaption>{GALLERY_IMAGES[1].alt}</figcaption>
-        </figure>
-        <figure className="gallery__item gallery__item--small">
-          <img src={GALLERY_IMAGES[2].src} alt={GALLERY_IMAGES[2].alt} loading="lazy" />
-          <figcaption>{GALLERY_IMAGES[2].alt}</figcaption>
-        </figure>
-
-        {/* Tall image */}
-        <figure className="gallery__item gallery__item--tall">
-          <img src={GALLERY_IMAGES[3].src} alt={GALLERY_IMAGES[3].alt} loading="lazy" />
-          <figcaption>{GALLERY_IMAGES[3].alt}</figcaption>
-        </figure>
-
-        {/* Wide image spanning 2 cols */}
-        <figure className="gallery__item gallery__item--wide">
-          <img src={GALLERY_IMAGES[4].src} alt={GALLERY_IMAGES[4].alt} loading="lazy" />
-          <figcaption>{GALLERY_IMAGES[4].alt}</figcaption>
-        </figure>
-
-        {/* Last small */}
-        <figure className="gallery__item gallery__item--small">
-          <img src={GALLERY_IMAGES[5].src} alt={GALLERY_IMAGES[5].alt} loading="lazy" />
-          <figcaption>{GALLERY_IMAGES[5].alt}</figcaption>
-        </figure>
       </div>
     </section>
   );
