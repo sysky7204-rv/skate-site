@@ -1,0 +1,186 @@
+{
+  "name": "홍림선",
+  "englishName": "HONG LIMSUN",
+  "tagline": "STREET. SKILL. PASSION.",
+  "slogan": "스케이트보드는 예술이다.",
+  "location": "서울특별시 강서구",
+  "stance": "REGULAR",
+  "born": "1990",
+  "instagram": "xl8er",
+  "youtubeChannelId": "UCXpOuidKHMbnRnKg9qQBn2Q",
+  "soomgoUrl": "https://soomgo.com/profile/users/3158946",
+  "story": {
+    "intro": "홍림선은 서울을 중심으로 활동하는 프리스타일 스케이터입니다. 기술적 완성도와 음악적 리듬을 결합한 스타일로 알려져 있으며, 많은 영상과 콜라보레이션을 통해 국내외에서 주목받았습니다.",
+    "paragraphs": [
+      "어린 시절부터 보드를 손에서 놓지 않았고, 도시의 골목과 광장을 무대로 삼아 다양한 트릭을 연구했습니다. 단순한 트릭의 반복이 아니라 움직임의 흐름과 표현을 중시하는 것이 그의 철학입니다.",
+      "영상 작업에는 늘 음악과 편집을 직접 관여해 왔습니다. 그 결과물들은 SNS와 유튜브에서 꾸준히 회자되며 로컬 신(scene) 안팎으로 영향력을 확장했습니다.",
+      "레슨 활동 또한 꾸준히 병행하여 초급자부터 중급자까지 체계적인 교육을 제공합니다. 기술 전수뿐 아니라 보드 문화와 안전, 장비 관리까지 폭넓게 다룹니다."
+    ],
+    "pullQuote": "스케이트보드는 기술이자 표현이다. 매 순간을 음악처럼 타는 것이 내 목표다."
+  },
+  "stats": [
+    { "label": "경력", "value": "2011년 데뷔 – 현재" },
+    { "label": "스타일", "value": "프리스타일 · 스트리트" },
+    { "label": "영상", "value": "15개" },
+    { "label": "레슨", "value": "초급~중급 대상" }
+  ],
+  "lessons": {
+    "title": "스케이트보드 개인/그룹 레슨",
+    "description": "기초 스탠스부터 트릭 연습, 안전 교육 및 장비 관리까지 포함한 1:1 또는 소그룹 레슨입니다. 초보자는 균형 잡기와 기본 스탠스부터 시작하고, 중급자는 프리스타일 트릭의 흐름과 콤비네이션을 중심으로 수업합니다.",
+    "price": "1시간 기준 50,000원",
+    "groupPrice": "2인 이상 시 협의 가능",
+    "qa": [
+      {
+        "question": "Q: 레슨은 어디에서 진행되나요?",
+        "answer": "A: 서울 강서구 인근(실외/실내)에서 진행합니다. 장소는 예약 시 상의하여 결정하며, 실내 공간이 필요할 경우 추가 비용이 발생할 수 있습니다."
+      },
+      {
+        "question": "Q: 초보자도 레슨을 받을 수 있나요?",
+        "answer": "A: 네. 초보자 대상 커리큘럼이 준비되어 있습니다. 균형 잡기, 푸시, 기본 회전 등을 단계적으로 지도합니다."
+      },
+      {
+        "question": "Q: 장비가 없는데 레슨을 받을 수 있나요?",
+        "answer": "A: 기본 장비(보드, 헬멧)를 임대해 드릴 수 있으니 미리 알려주시면 준비해 드립니다. 안전 장비 착용을 권장합니다."
+      }
+    ]
+  },
+  "videos": [
+    {
+      "id": "Mfw1DviQZIY",
+      "title": "The World Round Up 2021 - MA-410",
+      "thumbnail": "https://i.ytimg.com/vi/Mfw1DviQZIY/maxresdefault.jpg",
+      "published": "2021-10-12",
+      "views": "128,452"
+    },
+    {
+      "id": "IlAalVxsWA8",
+      "title": "XL8er - Break Dance",
+      "thumbnail": "https://i.ytimg.com/vi/IlAalVxsWA8/maxresdefault.jpg",
+      "published": "2020-06-21",
+      "views": "42,103"
+    },
+    {
+      "id": "6MSrNyvrCTE",
+      "title": "홍림선 - 5 on Flat",
+      "thumbnail": "https://i.ytimg.com/vi/6MSrNyvrCTE/maxresdefault.jpg",
+      "published": "2019-11-03",
+      "views": "35,879"
+    },
+    {
+      "id": "DXAsRiY6Yxk",
+      "title": "홍승아 콜라보레이션 - street session",
+      "thumbnail": "https://i.ytimg.com/vi/DXAsRiY6Yxk/maxresdefault.jpg",
+      "published": "2018-08-15",
+      "views": "18,240"
+    },
+    {
+      "id": "0Q9sGXCXFAU",
+      "title": "Longboard Festival Highlights",
+      "thumbnail": "https://i.ytimg.com/vi/0Q9sGXCXFAU/maxresdefault.jpg",
+      "published": "2017-05-02",
+      "views": "24,011"
+    },
+    {
+      "id": "Nb3DYpYrHnI",
+      "title": "2020년 1월 - Winter Session",
+      "thumbnail": "https://i.ytimg.com/vi/Nb3DYpYrHnI/maxresdefault.jpg",
+      "published": "2020-01-18",
+      "views": "9,732"
+    },
+    {
+      "id": "rohY1Ck08j8",
+      "title": "Seungah 2017 Collaboration",
+      "thumbnail": "https://i.ytimg.com/vi/rohY1Ck08j8/maxresdefault.jpg",
+      "published": "2017-09-09",
+      "views": "14,556"
+    },
+    {
+      "id": "LQP48cI-eIc",
+      "title": "해그늘 콜라보 - Urban Edit",
+      "thumbnail": "https://i.ytimg.com/vi/LQP48cI-eIc/maxresdefault.jpg",
+      "published": "2016-04-11",
+      "views": "7,890"
+    },
+    {
+      "id": "qlsfIAQvp84",
+      "title": "롱보드와 스케이트보드의 만남",
+      "thumbnail": "https://i.ytimg.com/vi/qlsfIAQvp84/maxresdefault.jpg",
+      "published": "2015-07-20",
+      "views": "6,301"
+    },
+    {
+      "id": "tYUn3tafMFw",
+      "title": "2009 Stop to Wax - Archive",
+      "thumbnail": "https://i.ytimg.com/vi/tYUn3tafMFw/maxresdefault.jpg",
+      "published": "2009-11-02",
+      "views": "3,210"
+    },
+    {
+      "id": "0QdM0n0_yTg",
+      "title": "Street Session - Night Run",
+      "thumbnail": "https://i.ytimg.com/vi/0QdM0n0_yTg/maxresdefault.jpg",
+      "published": "2014-03-14",
+      "views": "11,004"
+    },
+    {
+      "id": "4T2F8zjlNr0",
+      "title": "City Tricks Vol.1",
+      "thumbnail": "https://i.ytimg.com/vi/4T2F8zjlNr0/maxresdefault.jpg",
+      "published": "2013-10-30",
+      "views": "8,442"
+    },
+    {
+      "id": "BPOaHh7SwAY",
+      "title": "Freestyle Practice - Morning",
+      "thumbnail": "https://i.ytimg.com/vi/BPOaHh7SwAY/maxresdefault.jpg",
+      "published": "2012-06-05",
+      "views": "5,678"
+    },
+    {
+      "id": "SHKLTD_qu0o",
+      "title": "Local Crew Edit",
+      "thumbnail": "https://i.ytimg.com/vi/SHKLTD_qu0o/maxresdefault.jpg",
+      "published": "2011-09-18",
+      "views": "4,221"
+    },
+    {
+      "id": "_Eovf5TcpVE",
+      "title": "Prototype Clips - Early Days",
+      "thumbnail": "https://i.ytimg.com/vi/_Eovf5TcpVE/maxresdefault.jpg",
+      "published": "2011-03-12",
+      "views": "2,987"
+    }
+  ],
+  "career": [
+    {
+      "year": "2021",
+      "title": "The World Round Up 참여",
+      "description": "국내외 스트리트 씬에서 주목받는 영상 'The World Round Up 2021'에 참여하며 활동 폭을 넓힘.",
+      "type": "영상 출연"
+    },
+    {
+      "year": "2017",
+      "title": "콜라보레이션 프로젝트",
+      "description": "여러 아티스트 및 스케이터와의 협업 작업을 통해 크리에이티브 필름과 편집물을 발표함.",
+      "type": "콜라보레이션"
+    },
+    {
+      "year": "2014",
+      "title": "지역 대회 다수 참가",
+      "description": "지역 기반의 잦은 쇼케이스와 대회 참가로 실전 경험을 쌓음.",
+      "type": "대회"
+    },
+    {
+      "year": "2012",
+      "title": "레슨 활동 시작",
+      "description": "초보자를 위한 기초 레슨을 시작하며 교육 활동을 병행하기 시작함.",
+      "type": "교육"
+    },
+    {
+      "year": "2011",
+      "title": "프로 활동 시작",
+      "description": "본격적으로 영상 제작과 퍼포먼스를 통해 프로 활동을 시작함.",
+      "type": "데뷔"
+    }
+  ]
+}
