@@ -390,12 +390,13 @@
 .story__quotetext {
   font-family: var(--display-reg);
   font-weight: 800;
-  font-size: clamp(1.3rem, 3.5vw, 2.2rem);
+  font-size: clamp(1rem, 2.5vw, 1.75rem);
   line-height: 1.2;
   letter-spacing: -0.02em;
   color: var(--text-primary);
   margin: 0 0 1rem 3rem;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 .story__quoteauthor {
   font-family: var(--mono);
